@@ -15,3 +15,12 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore application configuration
+/config/application.yml
+
+#Ignore Simplecov test coverage
+coverage
+
+# Ignore vcr cassettes
+/spec/vcr_cassettes
