@@ -9,11 +9,10 @@ describe NrelService do
 
         expect(stations.count).to eq(10)
         expect(station).to have_key(:name)
-        expect(legislator).to have_key(:address)
+        expect(station[:name].class).to eq String
         #fuel Types
         #Distance
         #access times
-        expect(legislator[:name].class).to eq String
       end
     end
   end
