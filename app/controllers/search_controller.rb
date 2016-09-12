@@ -4,7 +4,7 @@ class SearchController < ApplicationController
       faraday.adapter Faraday.default_adapter
       faraday.params['api_key'] = ENV['NREL_key']
     end
-
+  
     response = @_conn.get do |req|
       req.url '/nrel/alt-fuel-stations/v1'
       req.params["fuel_type"] = "ELEC, LPG"

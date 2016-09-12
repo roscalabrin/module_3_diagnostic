@@ -1,8 +1,17 @@
 <h1>Search Results</h1>
 
-<% @stations.map do |station| %>
-  <%= station[:station_name] %>
-  <%= station[:street_address] %>
-  <%= station[:fuel_type_code] %>
-  <%= station[:access_days_time] %>
-<% end %>
+<h2>Total Stations: <%= @stations.count %></h2>
+<ul class="stations-list">
+  <% @stations.map do |station| %>
+    <%= station[:station_name] %>
+    <br>
+    <%= station[:street_address] %>
+    <br>
+    <%= station[:fuel_type_code] %>
+    <br>
+    <%= station[:access_days_time] %>
+    <br>
+    <br>
+  <% end %>
+</ul>
+
