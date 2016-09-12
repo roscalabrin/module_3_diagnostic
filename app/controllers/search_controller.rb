@@ -8,7 +8,7 @@ class SearchController < ApplicationController
     response = @_conn.get do |req|
       req.url '/nrel/alt-fuel-stations/v1'
       req.params["fuel_type"] = "ELEC, LPG"
-      req.params["zipcode"] = params[:q]
+      req.params["zip"] = params[:q]
       req.params["limit"] = 10
       req.params["format"] = 'json'
     end

@@ -5,7 +5,7 @@ feature 'User can search by zip code' do
     VCR.use_cassette("search_by_zipcode") do
       visit root_path
 
-      fill_in :q, with: "80203"
+      fill_in :q, with: "80202"
       click_button "Locate"
 
       expect(page.status_code).to eq(200)
@@ -18,11 +18,12 @@ feature 'User can search by zip code' do
       within('h2') do
         expect(page).to have_content('Total Stations: 10')
       end
+  
+      expect(page).to_not have_content("E85")
+      within('.stations-list') do
+        expect(page).to have_content('Sacramento County Public Garage')
+      end
       
-      within('.stations-list:nth-child(1)') do
-      expect(page).to have_content('Sacramento County Public Garage')
-    end
-      # And the stations should be limited to Electric and Propane
       # And for each of the stations I should see Name, Address, Fuel Types, Distance, and Access Times
     end
   end
